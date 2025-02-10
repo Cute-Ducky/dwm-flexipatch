@@ -1,77 +1,11 @@
-# dwm - dynamic window manager
-# See LICENSE file for copyright and license details.
-
-include config.mk
-
-SRC = drw.c dwm.c util.c
-OBJ = ${SRC:.c=.o}
-
-# FreeBSD users, prefix all ifdef, else and endif statements with a . for this to work (e.g. .ifdef)
-
-ifdef YAJLLIBS
-all: options dwm dwm-msg
-else
-all: options dwm
-endif
-
-options:
-	@echo dwm build options:
-	@echo "CFLAGS   = ${CFLAGS}"
-	@echo "LDFLAGS  = ${LDFLAGS}"
-	@echo "CC       = ${CC}"
-
-.c.o:
-	${CC} -c ${CFLAGS} $<
-
-${OBJ}: config.h config.mk patches.h
-
-config.h:
-	cp config.def.h $@
-
-patches.h:
-	cp patches.def.h $@
-
-dwm: ${OBJ}
-	${CC} -o $@ ${OBJ} ${LDFLAGS}
-
-ifdef YAJLLIBS
-dwm-msg:
-	${CC} -o $@ patch/ipc/dwm-msg.c ${LDFLAGS}
-endif
-
-clean:
-	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
-	rm -f dwm-msg
-
-dist: clean
-	mkdir -p dwm-${VERSION}
-	cp -R LICENSE Makefile README config.def.h config.mk\
-		dwm.1 drw.h util.h ${SRC} dwm.png transient.c dwm-${VERSION}
-	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
-	gzip dwm-${VERSION}.tar
-	rm -rf dwm-${VERSION}
-
-install: all
-	mkdir -p ${DESTDIR}${PREFIX}/bin
-	cp -f dwm ${DESTDIR}${PREFIX}/bin
-ifdef YAJLLIBS
-	cp -f dwm-msg ${DESTDIR}${PREFIX}/bin
-endif
-	#cp -f patch/dwmc ${DESTDIR}${PREFIX}/bin
-	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
-ifdef YAJLLIBS
-	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-msg
-endif
-	mkdir -p ${DESTDIR}${MANPREFIX}/man1
-	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
-	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
-	mkdir -p ${DESTDIR}${PREFIX}/share/xsession
-	cp -n dwm.desktop ${DESTDIR}${PREFIX}/share/xsession
-	chmod 644 ${DESTDIR}${PREFIX}/share/xsession/dwm.desktop
-
-uninstall:
-	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
-		${DESTDIR}${MANPREFIX}/man1/dwm.1\
-		${DESTDIR}${PREFIX}/share/xsession/dwm.desktop
-
-.PHONY: all options clean dist install uninstall
+vless://e497da22-d020-40fb-a1fa-bc294066a2d2@104.20.129.2:80?path=%2F%3Fed%3D2560&security=none&encryption=none&host=pormang.webhost99.workers.dev&type=ws#Free*%2001%20ID%28%40Outline_Vpn%29
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@www.speedtest.net:80?path=%2FLwW5jwrnymnOdqki%3Fed%3D2560&security=none&encryption=none&host=redw.pooriam.ir&type=ws#Free*%2002%20ID%28%40Outline_Vpn%29
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTptcHMzRndtRGpMcldhT1Zn@series-a1.samanehha.co:443#Free*%2003%20ID%28%40Outline_Vpn%29
+vless://d342d11e-d424-4583-b36e-524ab1f0afa4@172.67.73.163:80?path=%2F%3Fed%3D2560&security=none&encryption=none&host=a.xn--i-sx6a60i.us.kg.&type=ws#Free*%2004%20ID%28%40Outline_Vpn%29
+vless://89b3cbba-e6ac-485a-9481-976a0415eab9@104.21.32.1:2053?path=%2FAX0GWjCvjQscU063%3Fed%3D2048&security=tls&encryption=none&host=hasti.FrEEAiRlAINES.coM&fp=chrome&type=ws&sni=HAsti.freEaIrlaIneS.com#Free*%2005%20ID%28%40Outline_Vpn%29
+vless://009cccba-c0ec-4297-9898-5115898a7246@103.71.22.3:443?security=reality&encryption=none&pbk=n3NmzivS8eutbp8V2dcDqe-UyZynD1jszNy3l-2wzkw&headerType=none&fp=random&type=tcp&flow=xtls-rprx-vision&sni=spb33.hipay.su&sid=afc6da8dd99e4b83#Free*%2006%20ID%28%40Outline_Vpn%29
+vless://42f36835-730c-4ecc-9daf-20121ae7ba47@104.16.252.47:443?path=%2F%3Fed%3D2560&security=tls&encryption=none&host=gozargah.validbv7996.ir&fp=random&type=ws&sni=gozargah.validbv7996.ir#Free*%2007%20ID%28%40Outline_Vpn%29
+vless://89b3cbba-e6ac-485a-9481-976a0415eab9@104.21.96.1:2083?path=%2FJRQhLvgozN890ROi%3Fed%3D2560&security=tls&alpn=h2%2Chttp%2F1.1&encryption=none&host=HaSTI.fREeAirLAineS.COm&fp=randomized&type=ws&sni=HaSti.fReEaiRLAinEs.COM#Free*%2008%20ID%28%40Outline_Vpn%29
+vless://42f36835-730c-4ecc-9daf-20121ae7ba47@190.93.244.221:443?path=%2F%3Fed%3D2560&security=tls&encryption=none&host=gozargah.validbv7996.ir&fp=random&type=ws&sni=gozargah.validbv7996.ir#Free*%2009%20ID%28%40Outline_Vpn%29
+vless://89b3cbba-e6ac-485a-9481-976a0415eab9@104.21.32.1:2087?path=%2Fn9VBBKoNzJpkUcnO%3Fed%3D2048&security=tls&encryption=none&host=HaSti.fReEaIRlAineS.coM&fp=chrome&type=ws&sni=HASti.FReeAirlAINEs.cOm#Free*%2010%20ID%28%40Outline_Vpn%29
+vless://df0680ca-e43c-498d-ed86-8e196eedd012@37.27.249.215:8880?mode=gun&security=none&encryption=none&type=grpc#Free*%2011%20ID%28%40Outline_Vpn%29
